@@ -2,7 +2,7 @@
 
 void main()
 {
- int i,n, found = 0;
+ int i,n, count = 0;
 
      printf("Enter a number :");
      scanf("%d",&n);
@@ -10,13 +10,9 @@ void main()
      for(i = 2; i <= n/2; i ++)
      {
           if (n % i == 0)
-          {
-              printf("%d ",i);
-              found = 1;
-          }
+              count ++;
      }
 
-     if(found == 0)
-         printf("Sorry! No factors found!");
+     printf("Found [%d] factors", count);
 
 }
