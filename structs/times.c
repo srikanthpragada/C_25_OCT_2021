@@ -7,6 +7,8 @@ struct time  {
 typedef struct time TIME;
 typedef int NUMBER;
 
+struct time nextsecond(struct time t);
+
 void setzero(struct time * pt)
 {
      pt -> h = 0;
@@ -25,12 +27,39 @@ int compare(TIME t1, TIME t2)
    return  totalseconds(t1) - totalseconds(t2);
 }
 
+struct time nextsecond(struct time t)
+{
+   t.s ++;
+   if (t.s == 60)
+   {
+       t.s  = 0;
+       t.m ++;
+       if (t.m == 60)
+       {
+           t.m = 0;
+           t.h ++;
+           if(t.h == 24)
+             t.h = 0;
+       }
+   }
+
+   return t;
+}
+
+void print_time(struct time t)
+{
+  printf("%02d:%02d:%02d", t.h,t.m,t.s);
+}
+
 void main()
 {
   struct time times[5], largest = {0,0,0};
   int i;
-  struct time t;
+  struct time t = {10,59,59};
 
+      t = nextsecond(t);
+      print_time(t);
+      printf("\n");
       setzero(&t); // pass struct time by reference
 
       srand(time(0));
