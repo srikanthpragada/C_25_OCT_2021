@@ -1,0 +1,10 @@
+Python
+Java
+JavaScript
+TypeScript
+C#
+SQL
+Ruby
+Pascal
+PLSQL
+Visual Basic
